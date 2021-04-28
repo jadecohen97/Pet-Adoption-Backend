@@ -1,0 +1,2 @@
+ALTER TABLE signup ADD COLUMN role VARCHAR(10) DEFAULT 'user';
+INSERT INTO signup (first_name, last_name, email, phone_number, password_hash, role) VALUES ('Admin', 'Admins', 'admin@admin.com', 1111111111, '$2y$12$nuLz0YcQ6krvOo4FbDhQqu56Qzlm81S.Z9hEtB.43gVM2SiJUX1GK', 'admin');
