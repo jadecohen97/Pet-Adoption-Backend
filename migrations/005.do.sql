@@ -1,0 +1,1 @@
+ALTER TABLE pets ADD COLUMN adoptedBy VARCHAR(36);

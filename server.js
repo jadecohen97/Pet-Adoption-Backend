@@ -4,6 +4,7 @@ const path = require("path");
 // const { dirname } = require("path");
 const { postgrator } = require("./lib/database");
 // const multer = require("multer");
+const { uploadedFilesFolderName } = require("./middlewares/multipart");
 
 const app = express();
 app.use(express.json());
@@ -41,6 +42,7 @@ app.use("/signup", require("./routes/access"));
 app.use("/login", require("./routes/access"));
 app.use("/pets", require("./routes/addPet"));
 
+app.use("/" + uploadedFilesFolderName, express.static(uploadedFilesFolderName));
 
 // app.get("/:id", async (req, res) => {
 //   console.log("appjs: ", req.params.id);
