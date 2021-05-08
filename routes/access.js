@@ -84,8 +84,6 @@ router.put("/user/:id", auth, async (req, res) => {
     const userInfo = await query(
       SQL`UPDATE signup SET first_name = ${first_name}, last_name =  ${last_name} , email = ${email}, phone_number=${phone_number}, bio = ${bio}, password_hash = ${hash}  WHERE id = ${userId}`
     );
-
-    console.log("userinfo:", userInfo, req.body);
     res.send(req.body);
   });
 });
@@ -93,7 +91,6 @@ router.put("/user/:id", auth, async (req, res) => {
 router.get("/user/:id", auth, async (req, res) => {
   const userId = req.user.id;
   const userInfo = await query(SQL`SELECT * FROM signup WHERE id = ${userId}`);
-  console.log("userinfo:", userInfo);
   res.send(userInfo);
 });
 

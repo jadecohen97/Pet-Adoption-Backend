@@ -111,7 +111,6 @@ router.get("/user/:id", auth, async (req, res) => {
   const usersPets = await query(
     SQL`SELECT * FROM pets WHERE adoptedBy = ${userId} or fosteredBy = ${userId}`
   );
-  console.log("userid get adpt", userId);
   res.send(usersPets);
 });
 
@@ -130,7 +129,6 @@ router.post("/save/:id", auth, async (req, res) => {
 
 router.get("/user/save/:id", auth, async (req, res) => {
   const userId = req.user.id;
-  const petId = req.params.id;
   const getSavedPets = await query(
     SQL`SELECT * FROM savedPets WHERE savedBy = ${userId} `
   );
