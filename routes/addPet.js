@@ -8,10 +8,13 @@ const { auth } = require("../middlewares/auth");
 const { uploadToCloudinary } = require("../lib/cloudinary");
 const fs = require("fs");
 const { upload } = require("../middlewares/multipart");
+
+
 router.get("/", async (req, res) => {
   const petResults = await query(SQL`SELECT * FROM pets`);
   res.send({ pets: petResults });
 });
+
 router.post("/", auth, async (req, res) => {
   const {
     type,
